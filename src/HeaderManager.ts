@@ -56,7 +56,9 @@ export class HeaderManager {
             // violation of clean code
             this.detectAutoOrderedHeader(headerList);
         }
-        log.info(`headerList=${headerList}`);
+        headerList.forEach(function (item, index) {
+            log.info(`${index},${item.fullHeaderWithOrder},${item.fullHeaderWithoutOrder}`);
+        });
         return headerList;
     }
 
