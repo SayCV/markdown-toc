@@ -45,7 +45,8 @@ export class HeaderManager {
 
                 header.isIgnored = this.getIsHeaderIgnored(header, editor);
                 header.orderArray = this.calculateHeaderOrder(header, headerList);
-                header.orderedListString = header.orderArray.join('.') + ".";
+                header.orderedListString = header.orderArray.length === 0 ? "" : (header.orderArray.join('.') + ".");
+                log.info(`${header.depth},${header.orderedListString}`);
 
                 if (header.depth <= this.configManager.options.DEPTH_TO.value) {
                     headerList.push(header);
@@ -57,7 +58,7 @@ export class HeaderManager {
             this.detectAutoOrderedHeader(headerList);
         }
         headerList.forEach(function (item, index) {
-            log.info(`${index},${item.fullHeaderWithOrder},${item.fullHeaderWithoutOrder}`);
+            log.info(`${index},${item.depth},${item.fullHeaderWithOrder},${item.fullHeaderWithoutOrder}`);
         });
         return headerList;
     }
@@ -116,7 +117,7 @@ export class HeaderManager {
                 header.isIgnored = this.getIsHeaderIgnored(header, editor);
 
                 header.orderArray = this.calculateHeaderOrder(header, headerList);
-                header.orderedListString = header.orderArray.join('.') + ".";
+                header.orderedListString = header.orderArray.length === 0 ? "" : (header.orderArray.join('.') + ".");
 
                 if (header.depth <= this.configManager.options.DEPTH_TO.value) {
                     headerList.push(header);
@@ -139,11 +140,16 @@ export class HeaderManager {
     }
 
     public calculateHeaderOrder(headerBeforePushToList: Header, headerList: Header[]) {
-
+        if (headerBeforePushToList.depth <= this.configManager.options.DEPTH_FROM.value) {
+            log.info(`ignore calculateHeaderOrder`);
+            return [];
+        }
+        let orderArrayLength = headerBeforePushToList.depth - 1;
         if (headerList.length === 0) {
             // special case: First header
-            let orderArray = new Array(headerBeforePushToList.depth);
-            orderArray[headerBeforePushToList.depth - 1] = 1;
+            let orderArray = new Array(orderArrayLength);
+            orderArray[orderArrayLength - 1] = 1;
+            log.info(`special case: First header, ${headerBeforePushToList.depth}`);
             return orderArray;
         }
 
@@ -168,8 +174,8 @@ export class HeaderManager {
                 return orderArray;
             } else {
                 // special case: first header has greater level than second header
-                let orderArray = new Array(headerBeforePushToList.depth);
-                orderArray[headerBeforePushToList.depth - 1] = 1;
+                let orderArray = new Array(orderArrayLength);
+                orderArray[orderArrayLength - 1] = 1;
                 return orderArray;
             }
         }
