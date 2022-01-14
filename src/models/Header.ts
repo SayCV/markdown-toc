@@ -57,7 +57,7 @@ export class Header {
     }
 
     public get tocWithOrder(): string {
-        return this.orderArray.join('.') + ". " + this.tocWithoutOrder;
+        return (this.orderArray.length === 0 ? "" : (this.orderArray.join('.') + ". ")) + this.tocWithoutOrder;
     }
 
     public get fullHeaderWithOrder(): string {

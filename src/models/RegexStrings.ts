@@ -1,6 +1,6 @@
 export class RegexStrings {
-    REGEXP_TOC_START = /\s*<!--(.*)[^\/]TOC(.*)-->/gi;
-    REGEXP_TOC_STOP = /\s*<!--(.*)\/TOC(.*)-->/gi;
+    REGEXP_TOC_START = /\s*<!--(\s*)[^\/]TOC(.*)-->/gi;
+    REGEXP_TOC_STOP = /\s*<!--(\s*)\/TOC(.*)-->/gi;
     REGEXP_TOC_CONFIG = /\w+[:=][^\s]+/gi;
     REGEXP_TOC_CONFIG_ITEM = /(\w+)[:=]([^\s]+)/;
     REGEXP_MARKDOWN_ANCHOR = /^<a id="markdown-.+" name=".+"><\/a\>/;
