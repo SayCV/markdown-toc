@@ -2,7 +2,7 @@ import { Header } from "./models/Header";
 import { ConfigManager } from "./ConfigManager";
 import { window, DocumentSymbol, commands, Uri, TextEditor } from "vscode";
 import { RegexStrings } from "./models/RegexStrings";
-
+import { log } from "./log";
 
 export class HeaderManager {
     configManager: ConfigManager;
@@ -31,6 +31,7 @@ export class HeaderManager {
             this.convertAllFirstLevelHeader(symbols, allHeaders, headerLevels);
 
             let consideredDepthToInclude = this.getMostPopularHeaderDepth(headerLevels);
+            log.info(`consideredDepthToInclude=${consideredDepthToInclude}`);
 
 
             for (let index = 0; index < allHeaders.length; index++) {
@@ -55,7 +56,7 @@ export class HeaderManager {
             // violation of clean code
             this.detectAutoOrderedHeader(headerList);
         }
-
+        log.info(`headerList=${headerList}`);
         return headerList;
     }
 

@@ -5,6 +5,8 @@ import {
 } from 'vscode';
 
 import { AutoMarkdownToc } from './AutoMarkdownToc';
+import { extensionName } from "./defaults";
+import { log } from "./log";
 
 export function activate(context: ExtensionContext) {
 
@@ -26,7 +28,13 @@ export function activate(context: ExtensionContext) {
     context.subscriptions.push(deleteMarkdownSections);
 
     context.subscriptions.push(saveMarkdownToc);
+
+    log.info(`${extensionName} extension has been activated.`);
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() { }
+export function deactivate() {
+    //Terminals.disposeAll();
+  
+    log.dispose();
+}

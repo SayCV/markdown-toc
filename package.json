@@ -7,23 +7,23 @@
     "icon": "img/markdown-toc.png",
     "license": "MIT",
     "author": {
-        "email": "hunter.tran.92@gmail.com",
-        "name": "Hunter Tran",
-        "url": "https://coding4food.net/"
+        "email": "saycv@aliyun.com",
+        "name": "saycv",
+        "url": "https://github.com/saycv"
     },
     "bugs": {
-        "url": "https://github.com/huntertran/markdown-toc/issues"
+        "url": "https://github.com/saycv/markdown-toc/issues"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/huntertran/markdown-toc.git"
+        "url": "https://github.com/saycv/markdown-toc.git"
     },
     "keywords": [
         "markdown",
         "toc"
     ],
-    "homepage": "https://github.com/huntertran/markdown-toc",
-    "publisher": "huntertran",
+    "homepage": "https://github.com/saycv/markdown-toc",
+    "publisher": "saycv",
     "engines": {
         "vscode": "^1.46.0"
     },
@@ -155,13 +155,13 @@
         "anchor-markdown-header": "^0.5.7"
     },
     "devDependencies": {
-        "@types/vscode": "^1.46.0",
         "@types/glob": "^7.1.3",
         "@types/mocha": "^8.0.3",
         "@types/node": "^14.10.1",
-        "eslint": "^7.9.0",
-        "@typescript-eslint/parser": "^4.1.0",
+        "@types/vscode": "^1.46.0",
         "@typescript-eslint/eslint-plugin": "^4.1.0",
+        "@typescript-eslint/parser": "^4.1.0",
+        "eslint": "^7.9.0",
         "glob": "^7.1.6",
         "mocha": "^8.1.3",
         "typescript": "^4.0.2",
