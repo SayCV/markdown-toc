@@ -31,7 +31,6 @@ export class HeaderManager {
             this.convertAllFirstLevelHeader(symbols, allHeaders, headerLevels);
 
             let consideredDepthToInclude = this.getMostPopularHeaderDepth(headerLevels);
-            log.info(`consideredDepthToInclude=${consideredDepthToInclude}`);
 
 
             for (let index = 0; index < allHeaders.length; index++) {
@@ -140,8 +139,8 @@ export class HeaderManager {
     }
 
     public calculateHeaderOrder(headerBeforePushToList: Header, headerList: Header[]) {
-        if (headerBeforePushToList.depth <= this.configManager.options.DEPTH_FROM.value) {
-            log.info(`ignore calculateHeaderOrder`);
+        if (headerBeforePushToList.depth < this.configManager.options.DEPTH_FROM.value) {
+            log.info(`ignored-header-level=${headerBeforePushToList.depth}<${this.configManager.options.DEPTH_FROM.value}`);
             return [];
         }
         let orderArrayLength = headerBeforePushToList.depth - 1;
@@ -149,7 +148,7 @@ export class HeaderManager {
             // special case: First header
             let orderArray = new Array(orderArrayLength);
             orderArray[orderArrayLength - 1] = 1;
-            log.info(`special case: First header, ${headerBeforePushToList.depth}`);
+            log.info(`included-header-level=${headerBeforePushToList.depth}`);
             return orderArray;
         }
 

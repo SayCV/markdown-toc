@@ -111,7 +111,7 @@
                 },
                 "markdown-toc.orderedList": {
                     "type": "boolean",
-                    "default": false,
+                    "default": true,
                     "description": "Use ordered list (1. ..., 2. ...)."
                 },
                 "markdown-toc.bulletCharacter": {
