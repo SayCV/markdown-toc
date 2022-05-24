@@ -1,8 +1,8 @@
 {
-    "name": "saycv-markdown-toc",
+    "name": "fix-markdown-toc",
     "displayName": "Markdown TOC",
     "description": "Markdown TOC (Table Of Contents) Plugin for Visual Studio Code.",
-    "version": "3.0.12",
+    "version": "3.1.0",
     "preview": true,
     "icon": "img/markdown-toc.png",
     "license": "MIT",
@@ -23,7 +23,7 @@
         "toc"
     ],
     "homepage": "https://github.com/saycv/markdown-toc",
-    "publisher": "saycv",
+    "publisher": "SayCV",
     "engines": {
         "vscode": "^1.46.0"
     },
