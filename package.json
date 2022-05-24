@@ -1,6 +1,6 @@
 {
-    "name": "auto-markdown-toc",
-    "displayName": "Auto Markdown TOC",
+    "name": "saycv-markdown-toc",
+    "displayName": "Markdown TOC",
     "description": "Markdown TOC (Table Of Contents) Plugin for Visual Studio Code.",
     "version": "3.0.12",
     "preview": true,
